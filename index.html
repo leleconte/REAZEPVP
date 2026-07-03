@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>REAZE PVP • Official Website</title>
 
   <style>
@@ -20,7 +19,6 @@
       --pink: #ff39d4;
       --blue: #31d9ff;
       --green: #73ffb4;
-      --danger: #ff4d6d;
       --shadow: 0 0 45px rgba(168, 85, 255, 0.45);
       --shadow2: 0 0 70px rgba(255, 57, 212, 0.32);
     }
@@ -201,7 +199,7 @@
       top: 18px;
       left: 50%;
       transform: translateX(-50%);
-      width: min(1220px, calc(100% - 28px));
+      width: min(1260px, calc(100% - 28px));
       min-height: 78px;
       padding: 12px 18px;
       border: 1px solid rgba(255,255,255,0.16);
@@ -330,18 +328,14 @@
     }
 
     @keyframes rotateRing {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
 
     .hero-inner {
-      width: min(1220px, 100%);
+      width: min(1280px, 100%);
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
+      grid-template-columns: 0.92fr 1.08fr;
       align-items: center;
       gap: 48px;
       position: relative;
@@ -377,14 +371,8 @@
     }
 
     @keyframes livePulse {
-      0%, 100% {
-        transform: scale(1);
-        opacity: 1;
-      }
-      50% {
-        transform: scale(1.6);
-        opacity: 0.45;
-      }
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.6); opacity: 0.45; }
     }
 
     .hero-title {
@@ -416,12 +404,8 @@
     }
 
     @keyframes gradientMove {
-      from {
-        filter: drop-shadow(0 0 20px rgba(168,85,255,0.35));
-      }
-      to {
-        filter: drop-shadow(0 0 45px rgba(49,217,255,0.28));
-      }
+      from { filter: drop-shadow(0 0 20px rgba(168,85,255,0.35)); }
+      to { filter: drop-shadow(0 0 45px rgba(49,217,255,0.28)); }
     }
 
     .hero-desc {
@@ -440,6 +424,26 @@
       gap: 16px;
       flex-wrap: wrap;
       animation: fadeUp 0.8s ease 0.3s both;
+    }
+
+    .hero-mini-info {
+      margin-top: 26px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      animation: fadeUp 0.8s ease 0.4s both;
+    }
+
+    .mini-box {
+      padding: 12px 15px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.055);
+      backdrop-filter: blur(16px);
+      color: rgba(255,255,255,0.82);
+      font-size: 12px;
+      font-weight: 700;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
     }
 
     .btn {
@@ -499,7 +503,7 @@
 
     .hero-visual {
       position: relative;
-      min-height: 610px;
+      min-height: 690px;
       animation: fadeUp 0.9s ease 0.2s both;
       perspective: 1200px;
     }
@@ -523,12 +527,8 @@
     }
 
     @keyframes megaFloat {
-      0%, 100% {
-        transform: translateY(0) rotateX(0deg) rotateY(0deg);
-      }
-      50% {
-        transform: translateY(-17px) rotateX(2.2deg) rotateY(-2.4deg);
-      }
+      0%, 100% { transform: translateY(0) rotateX(0deg) rotateY(0deg); }
+      50% { transform: translateY(-17px) rotateX(2.2deg) rotateY(-2.4deg); }
     }
 
     .visual-card::before {
@@ -563,6 +563,24 @@
       pointer-events: none;
     }
 
+    .visual-shine {
+      position: absolute;
+      top: -15%;
+      left: -20%;
+      width: 50%;
+      height: 130%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.16), transparent);
+      transform: rotate(12deg);
+      z-index: 5;
+      pointer-events: none;
+      animation: shineMove 5s linear infinite;
+    }
+
+    @keyframes shineMove {
+      0% { transform: translateX(-120%) rotate(12deg); }
+      100% { transform: translateX(320%) rotate(12deg); }
+    }
+
     .hud {
       position: absolute;
       z-index: 6;
@@ -592,12 +610,8 @@
     }
 
     @keyframes hudFloat {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-12px);
-      }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
     }
 
     .hud small {
@@ -677,28 +691,14 @@
     }
 
     @keyframes mouseDot {
-      0% {
-        opacity: 0;
-        transform: translate(-50%, 0);
-      }
-      35% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0;
-        transform: translate(-50%, 15px);
-      }
+      0% { opacity: 0; transform: translate(-50%, 0); }
+      35% { opacity: 1; }
+      100% { opacity: 0; transform: translate(-50%, 15px); }
     }
 
     @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(38px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(38px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     section {
@@ -749,7 +749,7 @@
     }
 
     .section-text {
-      max-width: 480px;
+      max-width: 500px;
       color: rgba(255,255,255,0.65);
       line-height: 1.72;
       font-size: 15px;
@@ -832,9 +832,7 @@
     }
 
     @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
+      to { transform: rotate(360deg); }
     }
 
     .pack-empty {
@@ -921,12 +919,8 @@
     }
 
     @keyframes rulesPulse {
-      0%, 100% {
-        transform: translate(-50%, -50%) scale(1) rotate(0deg);
-      }
-      50% {
-        transform: translate(-50%, -50%) scale(1.08) rotate(2deg);
-      }
+      0%, 100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+      50% { transform: translate(-50%, -50%) scale(1.08) rotate(2deg); }
     }
 
     .rules-corners span {
@@ -999,12 +993,8 @@
     }
 
     @keyframes shineBox {
-      0% {
-        transform: translateX(-120%);
-      }
-      40%, 100% {
-        transform: translateX(120%);
-      }
+      0% { transform: translateX(-120%); }
+      40%, 100% { transform: translateX(120%); }
     }
 
     .cta-content {
@@ -1078,7 +1068,7 @@
       }
 
       .hero-visual {
-        min-height: 480px;
+        min-height: 520px;
       }
 
       .hud-right {
@@ -1137,7 +1127,7 @@
       }
 
       .hero-visual {
-        min-height: 390px;
+        min-height: 410px;
       }
 
       .visual-card {
@@ -1223,8 +1213,8 @@
 
           <p class="hero-desc">
             Un server creato per chi vuole azione, stile, competizione e una community seria.
-            REAZE PVP è pensato per dare un impatto immediato: grafica forte, identità pulita
-            e un’esperienza che resta impressa.
+            REAZE PVP è pensato per lasciare il segno: identità forte, atmosfera premium
+            ed esperienza visiva costruita per colpire subito.
           </p>
 
           <div class="hero-actions">
@@ -1236,16 +1226,49 @@
               ✦ Guarda i Pack
             </a>
           </div>
+
+          <div class="hero-mini-info">
+            <div class="mini-box">⚡ Visual premium</div>
+            <div class="mini-box">💜 Community identity</div>
+            <div class="mini-box">🎮 FiveM PVP style</div>
+          </div>
         </div>
 
         <div class="hero-visual">
           <div class="visual-card" id="visualCard">
-            <img src="REAZE.gif" alt="REAZE PVP ">
+            <img src="REAZE.gif" alt="REAZE PVP GIF">
             <div class="visual-overlay"></div>
+            <div class="visual-shine"></div>
           </div>
 
+          <div class="hud hud-left">
+            <small>REAZE SYSTEM</small>
+            <strong>Premium PVP Identity</strong>
+            <p>
+              Una presenza visiva aggressiva, moderna e costruita per far capire subito
+              che il server ha stile, qualità e personalità.
+            </p>
+          </div>
 
-
+          <div class="hud hud-right">
+            <small>STATUS</small>
+            <div class="status-row">
+              <div class="status">
+                <span>Community</span>
+                <span>ONLINE</span>
+              </div>
+              <div class="status">
+                <span>Style</span>
+                <span>MAX</span>
+              </div>
+              <div class="status">
+                <span>PVP</span>
+                <span>READY</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <a href="#pack" class="scroll-indicator">
         <div class="mouse"></div>
@@ -1262,35 +1285,17 @@
           </div>
 
           <p class="section-text">
-            Qui puoi inserire in seguito i tuoi pack. Le card sono vuote ma già pronte,
-            animate e in stile premium.
+            Una vetrina visiva pronta per ospitare i pack ufficiali REAZE.
           </p>
         </div>
 
         <div class="pack-grid reveal">
-          <div class="pack-card">
-            <div class="pack-empty"></div>
-          </div>
-
-          <div class="pack-card">
-            <div class="pack-empty"></div>
-          </div>
-
-          <div class="pack-card">
-            <div class="pack-empty"></div>
-          </div>
-
-          <div class="pack-card">
-            <div class="pack-empty"></div>
-          </div>
-
-          <div class="pack-card">
-            <div class="pack-empty"></div>
-          </div>
-
-          <div class="pack-card">
-            <div class="pack-empty"></div>
-          </div>
+          <div class="pack-card"><div class="pack-empty"></div></div>
+          <div class="pack-card"><div class="pack-empty"></div></div>
+          <div class="pack-card"><div class="pack-empty"></div></div>
+          <div class="pack-card"><div class="pack-empty"></div></div>
+          <div class="pack-card"><div class="pack-empty"></div></div>
+          <div class="pack-card"><div class="pack-empty"></div></div>
         </div>
       </div>
     </section>
@@ -1304,7 +1309,7 @@
           </div>
 
           <p class="section-text">
-            Spazio vuoto e pronto per inserire il regolamento ufficiale del server.
+            Spazio elegante e pronto per inserire il regolamento ufficiale del server.
           </p>
         </div>
 
@@ -1447,7 +1452,6 @@
 
     function createParticles() {
       particles = [];
-
       const amount = Math.min(120, Math.floor(window.innerWidth / 12));
 
       for (let i = 0; i < amount; i++) {
