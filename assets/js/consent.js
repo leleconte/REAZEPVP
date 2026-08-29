@@ -1,12 +1,21 @@
-(()=>{
-  const KEY='reaze_consent_v1'; const banner=document.querySelector('.cookie-banner'); const fab=document.querySelector('.cookie-fab'); const settings=document.querySelector('.cookie-settings');
-  if(!banner)return;
-  const read=()=>{try{return JSON.parse(localStorage.getItem(KEY)||'null')}catch{return null}};
-  const save=(type)=>{localStorage.setItem(KEY,JSON.stringify({necessary:true,analytics:type==='all',marketing:type==='all',savedAt:new Date().toISOString()}));banner.classList.remove('show');fab?.classList.add('show')};
-  if(!read()) banner.classList.add('show'); else fab?.classList.add('show');
-  banner.querySelector('[data-reject]')?.addEventListener('click',()=>save('necessary'));
-  banner.querySelector('[data-accept]')?.addEventListener('click',()=>save('all'));
-  banner.querySelector('[data-customize]')?.addEventListener('click',()=>settings?.classList.toggle('open'));
-  banner.querySelector('[data-save]')?.addEventListener('click',()=>save('necessary'));
-  fab?.addEventListener('click',()=>{banner.classList.add('show');fab.classList.remove('show')});
+(() => {
+  const KEY = 'reaze_cookie_notice_v2';
+  const banner = document.querySelector('[data-cookie-banner]');
+  const reopen = document.querySelector('[data-cookie-reopen]');
+  if (!banner) return;
+
+  const dismissed = localStorage.getItem(KEY) === 'dismissed';
+  if (!dismissed) banner.classList.add('show');
+  else reopen?.classList.add('show');
+
+  banner.querySelector('[data-cookie-ok]')?.addEventListener('click', () => {
+    localStorage.setItem(KEY, 'dismissed');
+    banner.classList.remove('show');
+    reopen?.classList.add('show');
+  });
+
+  reopen?.addEventListener('click', () => {
+    banner.classList.add('show');
+    reopen.classList.remove('show');
+  });
 })();

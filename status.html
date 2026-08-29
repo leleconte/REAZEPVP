@@ -1,1 +1,33 @@
-<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#07030c"><title>Status — REAZE PVP</title><meta name="description" content="Stato servizi REAZE PVP"><link rel="icon" href="assets/icons/favicon-192.png"><link rel="stylesheet" href="assets/css/style.css"></head><body><div class="site"><div class="noise"></div><div class="scanlines"></div><canvas id="particle-canvas"></canvas><div data-nav-slot></div><main class="legal-shell"><section class="legal-card reveal" data-status-root><div class="section-kicker">SERVER STATUS</div><h1>STATUS</h1><p>Questa pagina è già pronta per un futuro endpoint live. Finché <strong>statusEndpoint</strong> resta vuoto in <strong>assets/js/config.js</strong>, non mostra dati inventati.</p><div class="status-grid"><div class="status-card"><div class="status-state"><span class="status-dot"></span><span data-state>Non collegato</span></div><div class="status-kpis"><div class="kpi"><small>Players</small><b data-players>—</b></div><div class="kpi"><small>Max slots</small><b data-max>—</b></div></div></div><div class="status-card"><small>Uptime</small><h2 data-uptime>—</h2><p>Collega in futuro un endpoint JSON e la pagina si aggiornerà automaticamente.</p></div></div></section></main><div data-footer-slot></div></div><script src="assets/js/config.js"></script><script src="assets/js/components.js"></script><script src="assets/js/app.js"></script><script src="assets/js/consent.js"></script></body></html>
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#050208">
+  <meta name="description" content="Status server REAZE PVP.">
+  <title>Status — REAZE PVP</title>
+  <link rel="icon" href="assets/icons/favicon-192.png"><link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="site">
+  <div class="noise"></div><div class="scanlines"></div><div class="pointer-glow"></div><div class="ambient"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div><canvas id="particle-canvas"></canvas>
+  <div data-nav-slot></div>
+  <main data-status-root>
+    <section class="inner-hero"><div class="inner-hero-shell reveal"><img class="inner-logo" src="assets/img/reaze-pvp-logo.png" alt="REAZE PVP"><span class="kicker">SERVER STATUS</span><h1><span class="gradient-text">STATUS</span></h1><p>Controlla lo stato dei servizi REAZE PVP e le eventuali comunicazioni operative.</p></div></section>
+    <section class="status-wrap">
+      <div class="status-shell">
+        <div class="status-grid reveal">
+          <article class="status-card" data-state-card><span class="label">Stato server</span><strong><span class="dot"></span><span data-state>Non disponibile</span></strong><small>Stato attuale</small></article>
+          <article class="status-card"><span class="label">Players online</span><strong><span data-players>—</span> / <span data-max>—</span></strong><small>Giocatori connessi</small></article>
+          <article class="status-card"><span class="label">Queue</span><strong data-queue>—</strong><small>Giocatori in coda</small></article>
+          <article class="status-card"><span class="label">Uptime</span><strong data-uptime>—</strong><small>Tempo di attività</small></article>
+          <article class="status-card"><span class="label">Ping</span><strong data-ping>—</strong><small>Latenza media</small></article>
+          <article class="status-card"><span class="label">Manutenzioni</span><strong>—</strong><small>Nessuna informazione disponibile</small></article>
+        </div>
+        <div class="status-feed reveal"><h2>Aggiornamenti e incidenti</h2><p>Le comunicazioni operative del server verranno mostrate qui quando disponibili.</p></div>
+      </div>
+    </section>
+  </main>
+  <div data-footer-slot></div>
+  <div class="cookie-banner" data-cookie-banner><p>Questo sito usa solo strumenti tecnici necessari al funzionamento e una preferenza locale per ricordare la chiusura di questo avviso. <a href="cookie-policy.html">Cookie Policy</a>.</p><button type="button" data-cookie-ok>Ho capito</button></div><button class="cookie-reopen" type="button" aria-label="Informazioni cookie" data-cookie-reopen>◉</button>
+</div>
+<script src="assets/js/config.js"></script><script src="assets/js/components.js"></script><script src="assets/js/app.js"></script><script src="assets/js/consent.js"></script>
+</body></html>

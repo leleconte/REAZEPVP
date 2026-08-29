@@ -1,25 +1,38 @@
 # REAZE PVP — sito statico
 
-## File da modificare subito
-`assets/js/config.js`
-- `discordUrl`: link Discord permanente.
-- `connectUrl`: link/command per connettersi al server.
-- `statusEndpoint`: futuro endpoint JSON per lo status.
-- `legal.*`: dati reali del titolare/privacy.
+Versione riscritta completa.
 
 ## Pagine
-- `index.html`: landing completa.
-- `regolamento.html`: area contenuto volutamente vuota.
-- `shop.html`: area contenuto volutamente vuota.
-- `status.html`: pagina aggiunta per futuro stato live del server.
-- `privacy.html`, `cookie-policy.html`, `termini.html`: struttura legale da completare con dati reali prima del lancio definitivo.
-- `404.html`: pagina errore.
+- `index.html` — landing page animata.
+- `regolamento.html` — regolamento PvP completo.
+- `shop.html` — pagina volutamente vuota nei contenuti.
+- `faq.html` — FAQ dedicate ai giocatori.
+- `status.html` — stato server senza dati inventati; può leggere un endpoint JSON se configurato.
+- `privacy.html` — informativa privacy solo testuale.
+- `cookie-policy.html` — cookie policy.
+- `termini.html` — termini d'uso.
+- `404.html` — pagina errore.
+
+## Configurazione
+Modifica `assets/js/config.js`:
+- `discordUrl`: URL Discord ufficiale.
+- `connectUrl`: link/comando per il collegamento al server.
+- `statusEndpoint`: eventuale endpoint JSON per lo status.
+
+Formato status supportato:
+```json
+{
+  "online": true,
+  "players": 120,
+  "maxPlayers": 500,
+  "queue": 2,
+  "uptime": "12d 4h",
+  "ping": 35
+}
+```
 
 ## Logo
-`assets/img/reaze-pvp-logo.png` è la versione PNG con sfondo esterno trasparente ricavata dal file allegato.
+Il logo è in `assets/img/reaze-pvp-logo.png`.
 
-## Privacy / cookie
-Il template non carica Google Fonts, analytics, advertising pixel o script di terze parti. Il consenso è salvato localmente tramite `localStorage` e il pannello è predisposto per essere collegato a futuri strumenti. Se aggiungi tracker, non limitarti a cambiare il testo: blocca davvero lo script finché non c'è consenso.
-
-## Shop e regolamento
-Sono volutamente senza contenuti visibili nel `main`. Trovi un commento HTML che indica il punto esatto in cui inserire contenuti futuri.
+## Privacy
+Nel codice non sono presenti analytics, pixel pubblicitari o tracker di terze parti. L'avviso cookie utilizza solo `localStorage` per ricordare la chiusura del messaggio.

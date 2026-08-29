@@ -1,8 +1,96 @@
-(()=>{
- const nav=`<nav class="nav"><div class="nav-inner"><a class="brand" href="index.html"><img src="assets/img/reaze-pvp-logo.png" alt="Reaze PVP"><span>REAZE PVP</span></a><div class="nav-links"><a href="index.html#identity">Identità</a><a href="regolamento.html">Regolamento</a><a href="shop.html">Shop</a><a href="status.html">Status</a><a href="index.html#faq">FAQ</a></div><div class="nav-actions"><button class="icon-btn mobile-toggle" aria-label="Apri menu">☰</button><a class="pill" href="regolamento.html">Rules</a><a class="pill primary" data-discord href="#">Discord</a></div></div></nav>`;
- const footer=`<footer class="footer"><div class="footer-inner"><div><div class="footer-brand"><img src="assets/img/reaze-pvp-logo.png" alt=""><span>REAZE PVP</span></div><p>Competitive identity. Total custom mindset.</p></div><div class="footer-links"><a href="privacy.html">Privacy</a><a href="cookie-policy.html">Cookie</a><a href="termini.html">Termini</a><a href="status.html">Status</a><a href="#" data-discord>Discord</a></div></div><div class="footer-bottom"><span>© <span data-year></span> REAZE PVP</span><span>Independent gaming community website.</span></div></footer>`;
- const consent=`<button class="cookie-fab" aria-label="Gestisci cookie">◉</button><div class="cookie-banner" role="dialog" aria-label="Preferenze cookie"><div class="cookie-grid"><div><h3>Privacy, senza rumore.</h3><p>Questo template non carica tracker esterni. Usiamo solo memoria tecnica per ricordare la tua scelta. Se in futuro verranno aggiunti analytics o marketing, il consenso dovrà essere collegato qui prima di attivarli. <a href="cookie-policy.html"><u>Cookie policy</u></a>.</p></div><div class="cookie-actions"><button data-reject>Solo necessari</button><button data-customize>Personalizza</button><button class="accept" data-accept>Accetta tutti</button></div></div><div class="cookie-settings"><div class="cookie-row"><div><b>Necessari</b><br><small>Preferenze tecniche e funzionamento.</small></div><span class="switch on disabled"></span></div><div class="cookie-row"><div><b>Analytics</b><br><small>Nessun analytics è attualmente caricato.</small></div><span class="switch disabled"></span></div><div class="cookie-row"><div><b>Marketing</b><br><small>Nessun tracker marketing è attualmente caricato.</small></div><span class="switch disabled"></span></div><div class="cookie-actions"><button data-save>Salva preferenze</button></div></div></div>`;
- document.querySelector('[data-nav-slot]')?.replaceWith(document.createRange().createContextualFragment(nav));
- document.querySelector('[data-footer-slot]')?.replaceWith(document.createRange().createContextualFragment(footer));
- document.body.insertAdjacentHTML('beforeend',consent);document.querySelectorAll('[data-year]').forEach(el=>el.textContent=new Date().getFullYear());
+(() => {
+  const cfg = window.REAZE_CONFIG || {};
+  const page = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+
+  const navItems = [
+    ['index.html', 'Home'],
+    ['regolamento.html', 'Regolamento'],
+    ['shop.html', 'Shop'],
+    ['faq.html', 'FAQ'],
+    ['status.html', 'Status']
+  ];
+
+  const navSlot = document.querySelector('[data-nav-slot]');
+  if (navSlot) {
+    navSlot.innerHTML = `
+      <header class="site-nav" data-nav>
+        <div class="nav-shell">
+          <a class="brand" href="index.html" aria-label="REAZE PVP Home">
+            <img src="assets/img/reaze-pvp-logo.png" alt="REAZE PVP">
+            <span class="brand-word"><b>REAZE</b><small>PVP</small></span>
+          </a>
+          <nav class="nav-links" aria-label="Navigazione principale">
+            ${navItems.map(([href,label]) => `<a class="${page === href ? 'active' : ''}" href="${href}">${label}</a>`).join('')}
+            <a href="${cfg.discordUrl || '#'}" data-discord>Discord</a>
+          </nav>
+          <div class="nav-actions">
+            <a class="nav-cta" href="${cfg.connectUrl || '#'}" data-connect>Gioca ora <span>↗</span></a>
+            <button class="menu-toggle" type="button" aria-label="Apri menu" aria-expanded="false" data-menu-toggle>
+              <span></span><span></span>
+            </button>
+          </div>
+        </div>
+        <div class="mobile-menu" data-mobile-menu>
+          ${navItems.map(([href,label]) => `<a class="${page === href ? 'active' : ''}" href="${href}">${label}</a>`).join('')}
+          <a href="${cfg.discordUrl || '#'}" data-discord>Discord</a>
+          <a class="mobile-play" href="${cfg.connectUrl || '#'}" data-connect>Gioca ora</a>
+        </div>
+      </header>`;
+  }
+
+  const footerSlot = document.querySelector('[data-footer-slot]');
+  if (footerSlot) {
+    footerSlot.innerHTML = `
+      <footer class="site-footer">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <img src="assets/img/reaze-pvp-logo.png" alt="REAZE PVP">
+            <p>Competizione, fair play e una community costruita attorno al PvP.</p>
+          </div>
+          <div>
+            <h3>Link rapidi</h3>
+            <a href="index.html">Home</a>
+            <a href="regolamento.html">Regolamento</a>
+            <a href="shop.html">Shop</a>
+            <a href="faq.html">FAQ</a>
+            <a href="status.html">Status</a>
+          </div>
+          <div>
+            <h3>Community</h3>
+            <a href="${cfg.discordUrl || '#'}" data-discord>Discord</a>
+            <a href="regolamento.html">Regole PvP</a>
+            <a href="faq.html">Supporto</a>
+          </div>
+          <div>
+            <h3>Legale</h3>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="cookie-policy.html">Cookie Policy</a>
+            <a href="termini.html">Termini d'uso</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© <span data-current-year></span> REAZE PVP</span>
+          <span>GIOCA • COMBATTI • RISPETTA</span>
+        </div>
+      </footer>`;
+  }
+
+  document.querySelectorAll('[data-current-year]').forEach(el => el.textContent = new Date().getFullYear());
+
+  document.querySelectorAll('[data-discord]').forEach(el => {
+    el.setAttribute('href', cfg.discordUrl || '#');
+    if ((cfg.discordUrl || '#') === '#') {
+      el.addEventListener('click', e => e.preventDefault());
+    } else {
+      el.setAttribute('target','_blank');
+      el.setAttribute('rel','noopener noreferrer');
+    }
+  });
+
+  document.querySelectorAll('[data-connect]').forEach(el => {
+    el.setAttribute('href', cfg.connectUrl || '#');
+    if ((cfg.connectUrl || '#') === '#') {
+      el.addEventListener('click', e => e.preventDefault());
+    }
+  });
 })();
